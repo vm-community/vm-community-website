@@ -77,6 +77,11 @@ export default tseslint.config(
     files: ['src/app/opengraph-image.tsx', 'tests/**/*.{ts,tsx}', '**/*.test.{ts,tsx}'],
     rules: { 'vm/no-jsx-literal-strings': 'off', 'vm/no-raw-design-literals': 'off' },
   },
+  // Illustrative mock app screens: their text is sample UI content, not site copy
+  {
+    files: ['src/components/marketing/WebScreens.tsx', 'src/components/marketing/PhoneScreens.tsx'],
+    rules: { 'vm/no-jsx-literal-strings': 'off' },
+  },
   // Sanctioned innerHTML sites: the nonce'd theme bootstrap
   {
     files: ['src/app/layout.tsx', 'src/components/marketing/JsonLd.tsx'],

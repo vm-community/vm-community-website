@@ -444,3 +444,19 @@
     display: none;
   }
 }
+@utility vm-h-tree {
+  min-block-size: var(--vm-layout-tree-min);
+}
+@utility vm-tree-grid {
+  @media (min-width: 1200px) {
+    grid-template-columns: minmax(0, 1fr) var(--vm-layout-tree-panel);
+  }
+}
+@utility vm-dl-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+@utility vm-split-3-2 {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}

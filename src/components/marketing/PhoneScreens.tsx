@@ -1,55 +1,109 @@
-import { Bell, CalendarDays, Home, Network, Newspaper } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import {
+  Bell,
+  CalendarDays,
+  Clock,
+  Home,
+  MapPin,
+  Network,
+  Newspaper,
+  UserRound,
+  type LucideIcon,
+} from 'lucide-react';
+import type { ReactNode } from 'react';
 import { Avatar, ParticipantStack } from '@/components/vm/Avatar';
 import { Chip, StatusChip } from '@/components/vm/Chip';
 import { PollOptions } from '@/components/vm/PollOptions';
 import { ReactionBar } from '@/components/vm/ReactionBar';
-import { sampleEvent, sampleFeed, sampleHousehold, sampleStatement } from '@/content/samples';
-import { formatCurrency } from '@/lib/format/numbers';
+import {
+  sampleCommunity,
+  sampleEvent,
+  sampleFeed,
+  sampleHousehold,
+  samplePhone,
+  sampleStatement,
+} from '@/content/samples';
+import { cn } from '@/lib/cn';
 import { formatDate } from '@/lib/format/dates';
+import { formatCurrency } from '@/lib/format/numbers';
+import { Scaled } from './Scaled';
 
-/* Illustrative phone screens built from real components with sample data (labelled by the frame). */
+/* Illustrative phone screens: a real app layout (status bar, app bar, content, bottom tabs)
+   rendered at phone size (360 x 760) and scaled into the frame, so text keeps real proportions. */
 
-function BottomBar({ active }: { active: 'home' | 'feed' | 'events' | 'family' | 'me' }) {
-  const t = useTranslations('nav');
-  const items = [
-    { k: 'home', I: Home, l: t('home') },
-    { k: 'feed', I: Newspaper, l: t('community') },
-    { k: 'events', I: CalendarDays, l: t('events') },
-    { k: 'family', I: Network, l: t('family') },
-    { k: 'me', I: Bell, l: t('me') },
-  ] as const;
+export const PHONE_DESIGN = { w: 360, h: 760 } as const;
+
+const TAB_ICONS: LucideIcon[] = [Home, Newspaper, CalendarDays, Network, UserRound];
+
+function Shell({
+  active,
+  title,
+  children,
+}: {
+  active: number;
+  title: string;
+  children: ReactNode;
+}) {
   return (
-    <div className="mt-auto flex justify-between pt-2 vm-border-t" aria-hidden>
-      {items.map(({ k, I, l }) => (
-        <span
-          key={k}
-          className={`flex flex-col items-center gap-1 text-caption ${k === active ? 'text-primary' : 'text-text-muted'}`}
-        >
-          <I className="vm-icon-sm" />
-          {l}
+    <div
+      className="flex flex-col bg-bg text-text"
+      style={{ width: PHONE_DESIGN.w, height: PHONE_DESIGN.h }}
+    >
+      <div
+        aria-hidden
+        className="flex items-center justify-between px-5 pt-3 text-caption font-semibold"
+      >
+        <span>9:41</span>
+        <span className="h-2 w-6 rounded-full bg-text" />
+      </div>
+      <div aria-hidden className="flex items-center gap-3 px-5 pb-2 pt-3">
+        <span className="min-w-0 flex-1">
+          <span className="block text-caption text-text-muted">{sampleCommunity.name}</span>
+          <span className="block text-h2 font-semibold">{title}</span>
         </span>
-      ))}
+        <span className="relative rounded-full p-2 vm-border">
+          <Bell className="vm-icon" />
+          <span className="absolute end-1 top-1 size-2 rounded-full bg-danger" />
+        </span>
+      </div>
+      <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-hidden px-5 pb-3">{children}</div>
+      <nav aria-hidden className="flex vm-border-t bg-surface-raised px-2 pb-4 pt-2">
+        {samplePhone.tabs.map((label, i) => {
+          const I = TAB_ICONS[i] ?? Home;
+          return (
+            <span
+              key={label}
+              className={cn(
+                'flex flex-1 flex-col items-center gap-1 rounded-md py-1 text-caption font-medium',
+                i === active ? 'text-primary' : 'text-text-muted',
+              )}
+            >
+              <I className="vm-icon" />
+              {label}
+            </span>
+          );
+        })}
+      </nav>
     </div>
   );
 }
 
 export function FeedScreen() {
-  const t = useTranslations('nav');
   return (
-    <div className="flex h-full flex-col gap-2 text-small">
-      <p className="text-h3 font-semibold">{t('community')}</p>
-      {sampleFeed.map((p) => (
-        <div key={p.id} className="rounded-md bg-surface p-2 vm-border">
-          <div className="flex items-center gap-2">
+    <Shell active={1} title="Community">
+      {sampleFeed.slice(0, 3).map((p) => (
+        <article
+          key={p.id}
+          className="flex flex-col gap-2 rounded-lg bg-surface-raised p-4 vm-elevated-1"
+        >
+          <div className="flex items-center gap-3">
             <Avatar name={p.author} size="sm" decorative />
-            <span className="font-medium">{p.author}</span>
-            <span className="ms-auto text-caption text-text-muted">{p.time}</span>
+            <span className="flex-1 text-small font-semibold">{p.author}</span>
+            <span className="text-caption text-text-muted">{p.time}</span>
           </div>
-          {p.text && <p className="mt-1 text-caption">{p.text}</p>}
+          {p.text && <p className="text-small leading-body">{p.text}</p>}
           {p.poll && (
-            <div className="mt-1">
-              <p className="text-caption font-medium">{p.poll.question}</p>
+            <div className="flex flex-col gap-2">
+              <p className="text-small font-medium">{p.poll.question}</p>
               <PollOptions
                 options={p.poll.options.map(([label, votes], i) => ({
                   id: String(i),
@@ -59,7 +113,6 @@ export function FeedScreen() {
                 totalVotes={p.poll.options.reduce((a, [, v]) => a + v, 0)}
                 myVote="0"
                 canVote={false}
-                className="mt-1"
               />
             </div>
           )}
@@ -72,124 +125,139 @@ export function FeedScreen() {
                 total: Object.values(p.reactions).reduce((a, b) => a + b, 0),
                 my_reaction: null,
               }}
-              className="mt-1"
             />
           )}
-        </div>
+        </article>
       ))}
-      <BottomBar active="feed" />
-    </div>
+    </Shell>
   );
 }
 
 export function EventScreen() {
-  const t = useTranslations('nav');
-  const tv = useTranslations('marketing.common');
   const e = sampleEvent;
   return (
-    <div className="flex h-full flex-col gap-2 text-small">
-      <p className="text-h3 font-semibold">{t('events')}</p>
-      <div className="rounded-md vm-gradient-brand p-3 text-on-scrim">
-        <p className="text-h2 font-bold">{e.date.day}</p>
-        <p className="text-caption">{e.date.month}</p>
-      </div>
-      <p className="text-body font-semibold">{e.title}</p>
-      <p className="text-caption text-text-muted">
-        {e.time} · {e.venue}
-      </p>
-      <div className="flex items-center gap-2">
-        <ParticipantStack people={e.going.map((name) => ({ name }))} />
-        <span className="text-caption text-text-muted vm-tabular">
-          {e.registered}/{e.capacity}
-        </span>
-      </div>
-      <span
-        className="mt-1 inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-small font-medium text-on-primary"
-        aria-hidden
-      >
-        {tv('rsvp')}
-      </span>
-      <BottomBar active="events" />
-    </div>
+    <Shell active={2} title="Events">
+      <article className="flex flex-col overflow-hidden rounded-lg bg-surface-raised vm-elevated-1">
+        <div className="flex h-32 items-end p-4 vm-gradient-brand">
+          <span
+            className="flex flex-col items-center rounded-md bg-bg px-3 py-1 leading-none text-text"
+            aria-hidden
+          >
+            <span className="text-h2 font-bold">{e.date.day}</span>
+            <span className="text-caption font-medium uppercase">{e.date.month}</span>
+          </span>
+        </div>
+        <div className="flex flex-col gap-3 p-4">
+          <h3 className="text-h3 font-semibold">{e.title}</h3>
+          <p className="flex items-center gap-2 text-small text-text-muted">
+            <Clock className="vm-icon-sm" aria-hidden /> {e.time}
+          </p>
+          <p className="flex items-center gap-2 text-small text-text-muted">
+            <MapPin className="vm-icon-sm" aria-hidden /> {e.venue}
+          </p>
+          <div className="flex items-center gap-3">
+            <ParticipantStack people={e.going.map((name) => ({ name }))} />
+            <span className="text-small text-text-muted vm-tabular">
+              {e.registered} {samplePhone.going}
+            </span>
+          </div>
+          <span
+            className="flex items-center justify-center rounded-full bg-primary px-4 py-3 text-body font-semibold text-on-primary"
+            aria-hidden
+          >
+            {samplePhone.rsvp}
+          </span>
+        </div>
+      </article>
+    </Shell>
   );
 }
 
 export function GivingScreen() {
-  const t = useTranslations('nav');
   const s = sampleStatement;
   return (
-    <div className="flex h-full flex-col gap-2 text-small">
-      <p className="text-h3 font-semibold">{t('giving')}</p>
-      <div className="relative overflow-hidden rounded-md bg-surface p-3 vm-border">
+    <Shell active={4} title="Giving">
+      <div className="relative overflow-hidden rounded-lg bg-surface-raised p-4 vm-elevated-1">
         <span aria-hidden className="absolute inset-x-0 top-0 h-1 vm-gradient-brand" />
-        <p className="text-caption text-text-muted">{s.year}</p>
-        <p className="text-h2 font-semibold vm-tabular">{formatCurrency(s.total)}</p>
+        <p className="text-caption text-text-muted">
+          {samplePhone.statementTitle} {s.year}
+        </p>
+        <p className="text-display font-bold vm-tabular">{formatCurrency(s.total)}</p>
       </div>
-      <ul className="flex flex-col gap-1">
+      <ul className="flex flex-col gap-2">
         {s.rows.map((r) => (
           <li
             key={r.date}
-            className="flex items-center justify-between rounded-sm bg-surface px-2 py-1 text-caption"
+            className="flex items-center gap-3 rounded-lg bg-surface-raised p-3 vm-elevated-1"
           >
-            <span>
-              <span className="block font-medium">{r.fund}</span>
-              <span className="text-text-muted">
+            <span className="min-w-0 flex-1">
+              <span className="block text-small font-semibold">{r.fund}</span>
+              <span className="block text-caption text-text-muted">
                 {formatDate(r.date)} · {r.method}
               </span>
             </span>
-            <span className="vm-tabular">{formatCurrency(r.amount)}</span>
+            <span className="text-small font-semibold vm-tabular">{formatCurrency(r.amount)}</span>
+            <StatusChip status="RECEIVED" />
           </li>
         ))}
       </ul>
-      <StatusChip status="RECEIVED" className="self-start" />
-      <BottomBar active="me" />
-    </div>
+      <span
+        className="mt-auto flex items-center justify-center rounded-full bg-primary px-4 py-3 text-body font-semibold text-on-primary"
+        aria-hidden
+      >
+        {samplePhone.addGift}
+      </span>
+    </Shell>
   );
 }
 
 export function FamilyScreen() {
-  const t = useTranslations('nav');
   const h = sampleHousehold;
   return (
-    <div className="flex h-full flex-col gap-2 text-small">
-      <p className="text-h3 font-semibold">{t('family')}</p>
-      <p className="font-medium">{h.family}</p>
-      <ul className="flex flex-col gap-1">
-        {h.members.map((m) => (
-          <li key={m.name} className="flex items-center gap-2 rounded-sm bg-surface px-2 py-1">
-            <Avatar name={m.name} size="sm" decorative />
-            <span className="min-w-0 flex-1 truncate">{m.name}</span>
-            <Chip size="sm">{m.label}</Chip>
-          </li>
-        ))}
-      </ul>
-      <div className="flex flex-wrap gap-1">
+    <Shell active={3} title="Family">
+      <p className="text-caption font-semibold uppercase tracking-wide text-text-muted">
+        {samplePhone.household}
+      </p>
+      <div className="rounded-lg bg-surface-raised p-4 vm-elevated-1">
+        <p className="mb-2 text-body font-semibold">{h.family}</p>
+        <ul className="flex flex-col gap-2">
+          {h.members.map((m) => (
+            <li key={m.name} className="flex items-center gap-3">
+              <Avatar name={m.name} size="sm" decorative />
+              <span className="flex-1 text-small">{m.name}</span>
+              <Chip size="sm">{m.label}</Chip>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p className="text-caption font-semibold uppercase tracking-wide text-text-muted">
+        {samplePhone.linked}
+      </p>
+      <div className="flex flex-wrap gap-2">
         {h.linked.map((l) => (
-          <Chip
-            key={l}
-            tone="primary"
-            size="sm"
-            icon={<Network className="vm-icon-sm" aria-hidden />}
-          >
+          <Chip key={l} tone="primary" icon={<Network className="vm-icon-sm" aria-hidden />}>
             {l}
           </Chip>
         ))}
       </div>
-      <BottomBar active="family" />
-    </div>
+    </Shell>
   );
 }
 
 export function PhoneScreen({ kind }: { kind: 'feed' | 'event' | 'giving' | 'family' }) {
-  switch (kind) {
-    case 'feed':
-      return <FeedScreen />;
-    case 'event':
-      return <EventScreen />;
-    case 'giving':
-      return <GivingScreen />;
-    case 'family':
-    default:
-      return <FamilyScreen />;
-  }
+  const screen =
+    kind === 'feed' ? (
+      <FeedScreen />
+    ) : kind === 'event' ? (
+      <EventScreen />
+    ) : kind === 'giving' ? (
+      <GivingScreen />
+    ) : (
+      <FamilyScreen />
+    );
+  return (
+    <Scaled designWidth={PHONE_DESIGN.w} designHeight={PHONE_DESIGN.h} initialScale={0.8}>
+      {screen}
+    </Scaled>
+  );
 }

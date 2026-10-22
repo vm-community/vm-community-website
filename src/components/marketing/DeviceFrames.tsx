@@ -15,14 +15,8 @@ export function PhoneFrame({
   const t = useTranslations('marketing.common');
   return (
     <figure className={cn('mx-auto w-full max-w-phone-frame', className)}>
-      <div className="relative overflow-hidden rounded-lg bg-text p-1 vm-elevated-3 vm-aspect-phone">
-        <div className="flex h-full flex-col overflow-hidden rounded-lg bg-bg text-text">
-          <div className="flex items-center justify-between px-3 py-2 text-caption text-text-muted">
-            <span>9:41</span>
-            <span aria-hidden className="h-1 w-6 rounded-full bg-text-muted" />
-          </div>
-          <div className="min-h-0 flex-1 overflow-hidden px-3 pb-3">{children}</div>
-        </div>
+      <div className="overflow-hidden rounded-lg bg-text p-1 vm-elevated-3">
+        <div className="overflow-hidden rounded-md bg-bg">{children}</div>
       </div>
       <figcaption className="mt-2 text-center text-caption text-text-muted">
         {label ?? t('illustrative')}
@@ -56,7 +50,7 @@ export function BrowserFrame({
             {url ?? 'community.example/app'}
           </span>
         </div>
-        <div className="overflow-hidden p-3">{children}</div>
+        <div className="overflow-hidden">{children}</div>
       </div>
       <figcaption className="mt-2 text-caption text-text-muted">
         {label ?? t('illustrative')}

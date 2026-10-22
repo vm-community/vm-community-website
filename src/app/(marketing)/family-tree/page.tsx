@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import { FamilyTreeLazy } from '@/components/marketing/FamilyTreeLazy';
 import { TreeMotif } from '@/components/marketing/NetworkMotif';
 import {
   BenefitGrid,
@@ -8,7 +9,6 @@ import {
   Section,
   SectionHeading,
 } from '@/components/marketing/Sections';
-import { InlineAlert } from '@/components/vm/Banner';
 import { ButtonLink } from '@/components/vm/Button';
 import { Chip } from '@/components/vm/Chip';
 
@@ -44,10 +44,7 @@ export default async function FamilyTreePage() {
           <Chip tone="muted" className="w-fit">
             {tc('illustrativeSample')}
           </Chip>
-          <div className="rounded-lg bg-surface-raised p-5 text-primary vm-elevated-1">
-            <TreeMotif className="mx-auto max-w-prose" />
-          </div>
-          <InlineAlert tone="info">{t('demoPending')}</InlineAlert>
+          <FamilyTreeLazy />
         </div>
       </Section>
 

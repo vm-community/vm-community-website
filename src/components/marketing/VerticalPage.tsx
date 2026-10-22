@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 import { BrowserFrame, PhoneFrame } from './DeviceFrames';
 import { Faq } from './Faq';
+import { FamilyTreeLazy } from './FamilyTreeLazy';
 import { NetworkMotif, TreeMotif } from './NetworkMotif';
 import { PhoneScreen } from './PhoneScreens';
 import {
@@ -159,21 +160,40 @@ export async function VerticalPage({ content }: { content: VerticalContent }) {
 
       {content.familyConnections && (
         <Section id="family" tone="surface">
-          <div className="grid items-center gap-6 md:grid-cols-2">
-            <div className="text-primary">
-              <TreeMotif />
-            </div>
-            <div className="flex flex-col gap-3">
-              <h2 className="text-h1 font-semibold">{content.familyConnections.title}</h2>
-              <p className="text-body text-text-muted">{content.familyConnections.body}</p>
+          {content.key === 'family-association' ? (
+            <div className="flex flex-col gap-6">
+              <SectionHeading
+                title={content.familyConnections.title}
+                sub={content.familyConnections.body}
+              />
+              <Chip tone="muted" className="mx-auto w-fit">
+                {tc('illustrativeSample')}
+              </Chip>
+              <FamilyTreeLazy />
               <Link
                 href="/family-tree"
-                className="text-small font-medium text-primary hover:underline"
+                className="mx-auto text-small font-medium text-primary hover:underline"
               >
                 {tn('familyTree')}
               </Link>
             </div>
-          </div>
+          ) : (
+            <div className="grid items-center gap-6 md:grid-cols-2">
+              <div className="text-primary">
+                <TreeMotif />
+              </div>
+              <div className="flex flex-col gap-3">
+                <h2 className="text-h1 font-semibold">{content.familyConnections.title}</h2>
+                <p className="text-body text-text-muted">{content.familyConnections.body}</p>
+                <Link
+                  href="/family-tree"
+                  className="text-small font-medium text-primary hover:underline"
+                >
+                  {tn('familyTree')}
+                </Link>
+              </div>
+            </div>
+          )}
         </Section>
       )}
 

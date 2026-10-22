@@ -155,3 +155,128 @@ export const sampleRoles = [
   { role: 'Treasurer', scopes: 'Funds, contributions, statements' },
   { role: 'Member', scopes: 'Own profile, feed, RSVP, giving' },
 ];
+
+/** Illustrative app chrome and screen copy for the device frames (fictional community). */
+export const sampleCommunity = { name: 'Grace Community', user: 'Anna Mathew' };
+
+export const sampleWebNav = [
+  'Home',
+  'Community',
+  'Events',
+  'Families',
+  'Members',
+  'Giving',
+  'Documents',
+] as const;
+
+export const sampleWebScreens: Record<
+  'dashboard' | 'members' | 'events' | 'ledger' | 'approvals' | 'documents' | 'roles' | 'tree',
+  { nav: (typeof sampleWebNav)[number]; title: string; sub: string; action: string }
+> = {
+  dashboard: {
+    nav: 'Home',
+    title: 'Dashboard',
+    sub: 'Your community at a glance',
+    action: 'New announcement',
+  },
+  members: {
+    nav: 'Members',
+    title: 'Members',
+    sub: '1,284 people · 412 households',
+    action: 'Add member',
+  },
+  events: {
+    nav: 'Events',
+    title: 'Events',
+    sub: 'Plan services, gatherings and series',
+    action: 'New event',
+  },
+  ledger: {
+    nav: 'Giving',
+    title: 'Contributions',
+    sub: 'Recorded through your own channels',
+    action: 'Record contribution',
+  },
+  approvals: {
+    nav: 'Community',
+    title: 'Awaiting review',
+    sub: 'Posts waiting for an approver',
+    action: 'Review all',
+  },
+  documents: {
+    nav: 'Documents',
+    title: 'Documents',
+    sub: 'Minutes, policies and guides',
+    action: 'Upload',
+  },
+  roles: {
+    nav: 'Members',
+    title: 'Roles and access',
+    sub: 'Each role sees only what it needs',
+    action: 'New role',
+  },
+  tree: {
+    nav: 'Families',
+    title: 'Family tree',
+    sub: 'Three families · four generations',
+    action: 'Add relative',
+  },
+};
+
+export const sampleUpcoming = [
+  { day: '14', month: 'Jun', title: 'Community picnic', meta: 'Riverside park · 10:00', going: 86 },
+  { day: '21', month: 'Jun', title: 'Volunteers meeting', meta: 'Hall B · 18:30', going: 24 },
+  { day: '28', month: 'Jun', title: 'Sunday gathering', meta: 'Main hall · 09:00', going: 212 },
+];
+
+export const sampleEvents = [
+  {
+    day: '14',
+    month: 'Jun',
+    title: 'Community picnic',
+    meta: 'Riverside park · 10:00 – 14:00',
+    status: 'PUBLISHED',
+    going: '86 / 120',
+  },
+  {
+    day: '21',
+    month: 'Jun',
+    title: 'Volunteers meeting',
+    meta: 'Hall B · 18:30',
+    status: 'PUBLISHED',
+    going: '24 / 40',
+  },
+  {
+    day: '28',
+    month: 'Jun',
+    title: 'Sunday gathering',
+    meta: 'Weekly series · Main hall',
+    status: 'PUBLISHED',
+    going: '212',
+  },
+  {
+    day: '05',
+    month: 'Jul',
+    title: 'Youth camp briefing',
+    meta: 'Hall A · 17:00',
+    status: 'DRAFT',
+    going: '0 / 60',
+  },
+];
+
+export const sampleActivity = [
+  'Anna Mathew joined the welcome team',
+  'Harvest gathering was published',
+  'Welfare fund statement was issued',
+  'Hall B booking approved for 21 Jun',
+];
+
+export const samplePhone = {
+  tabs: ['Home', 'Community', 'Events', 'Family', 'Me'],
+  rsvp: 'RSVP',
+  going: 'going',
+  addGift: 'Record a contribution',
+  statementTitle: 'Annual statement',
+  household: 'Your household',
+  linked: 'Linked families',
+};

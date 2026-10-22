@@ -91,6 +91,8 @@
   --vm-layout-preview-max: 192px;
   --vm-layout-popover-max: 256px;
   --vm-layout-phone-frame: 300px;
+  --vm-layout-tree-min: 480px;
+  --vm-layout-tree-panel: 352px;
   --vm-bp-phone-max: 600px;
   --vm-bp-tablet-max: 840px;
   --vm-type-display-lg: 3.25rem; /* 52 desktop hero (web-only addition) */
