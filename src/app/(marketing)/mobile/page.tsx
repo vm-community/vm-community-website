@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { PhoneFrame } from '@/components/marketing/DeviceFrames';
-import { PhoneScreen } from '@/components/marketing/PhoneScreens';
+import { PhoneScreen, type PhoneScreenKind } from '@/components/marketing/PhoneScreens';
 import { CtaBand, Icon, Section, SectionHeading } from '@/components/marketing/Sections';
 import { ButtonLink } from '@/components/vm/Button';
 import { InlineAlert } from '@/components/vm/Banner';
@@ -12,18 +12,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t('title'), description: t('sub'), alternates: { canonical: '/mobile' } };
 }
 
-const SECTIONS: Array<{
-  n: 1 | 2 | 3 | 4 | 5 | 6 | 7;
-  icon: IconName;
-  screen: 'feed' | 'event' | 'giving' | 'family';
-}> = [
+const SECTIONS: Array<{ n: 1 | 2 | 3 | 4 | 5 | 6 | 7; icon: IconName; screen: PhoneScreenKind }> = [
   { n: 1, icon: 'Newspaper', screen: 'feed' },
   { n: 2, icon: 'CalendarDays', screen: 'event' },
   { n: 3, icon: 'HandCoins', screen: 'giving' },
   { n: 4, icon: 'Network', screen: 'family' },
-  { n: 5, icon: 'HeartHandshake', screen: 'feed' },
-  { n: 6, icon: 'Lock', screen: 'family' },
-  { n: 7, icon: 'Sparkles', screen: 'event' },
+  { n: 5, icon: 'HeartHandshake', screen: 'serving' },
+  { n: 6, icon: 'Lock', screen: 'privacy' },
+  { n: 7, icon: 'Sparkles', screen: 'communities' },
 ];
 
 export default async function MobilePage() {

@@ -79,7 +79,15 @@ export default tseslint.config(
   },
   // Illustrative mock app screens: their text is sample UI content, not site copy
   {
-    files: ['src/components/marketing/WebScreens.tsx', 'src/components/marketing/PhoneScreens.tsx'],
+    files: [
+      'src/components/marketing/WebScreens.tsx',
+      'src/components/marketing/PhoneScreens.tsx',
+      'src/components/marketing/phone/**/*.tsx',
+      'src/components/marketing/FamilyHero.tsx',
+      'src/components/marketing/FamilyTreeSection.tsx',
+      'src/components/marketing/FamilyTreeSample.tsx',
+      'src/components/marketing/phone/*.tsx',
+    ],
     rules: { 'vm/no-jsx-literal-strings': 'off' },
   },
   // Sanctioned innerHTML sites: the nonce'd theme bootstrap

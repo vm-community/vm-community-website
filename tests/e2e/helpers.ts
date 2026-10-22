@@ -22,7 +22,13 @@ export async function screenshotMatrix(
   await page.locator('h1').first().waitFor({ state: 'visible' });
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(400);
-  await page.screenshot({ path: `screenshots/${name}-${theme}-${width}.png`, fullPage: true });
+  const height = await page.evaluate(() => document.documentElement.scrollHeight);
+  // Chromium cannot capture taller than 16384 px in one image
+  await page.screenshot({
+    path: `screenshots/${name}-${theme}-${width}.png`,
+    fullPage: true,
+    clip: { x: 0, y: 0, width, height: Math.min(height, 16000) },
+  });
 }
 
 export async function expectNoSeriousAxe(page: Page): Promise<void> {

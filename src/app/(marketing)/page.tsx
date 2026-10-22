@@ -1,12 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
-import { BrowserFrame, PhoneFrame } from '@/components/marketing/DeviceFrames';
+import { DevicePair } from '@/components/marketing/DevicePair';
 import { Faq } from '@/components/marketing/Faq';
 import { FeatureTabsLazy } from '@/components/marketing/FeatureTabsLazy';
 import { HeroRotator } from '@/components/marketing/HeroRotator';
 import { NetworkMotif, TreeMotif } from '@/components/marketing/NetworkMotif';
-import { PhoneScreen } from '@/components/marketing/PhoneScreens';
 import {
   BenefitGrid,
   CtaBand,
@@ -15,7 +14,6 @@ import {
   SectionHeading,
   Steps,
 } from '@/components/marketing/Sections';
-import { WebScreen } from '@/components/marketing/WebScreens';
 import { ButtonLink } from '@/components/vm/Button';
 import { VERTICAL_CONTENT, forPath } from '@/content/verticals';
 import type { IconName } from '@/content/types';
@@ -134,22 +132,7 @@ export default async function HomePage() {
 
       <Section id="sync" tone="surface">
         <SectionHeading title={t('syncTitle')} sub={t('syncSub')} />
-        <div className="grid items-start gap-6 md:grid-cols-2">
-          <div className="flex flex-col gap-3">
-            <h3 className="text-h2 font-semibold">{t('syncWebTitle')}</h3>
-            <p className="text-small text-text-muted">{t('syncWebBody')}</p>
-            <BrowserFrame>
-              <WebScreen kind="dashboard" />
-            </BrowserFrame>
-          </div>
-          <div className="flex flex-col gap-3">
-            <h3 className="text-h2 font-semibold">{t('syncPhoneTitle')}</h3>
-            <p className="text-small text-text-muted">{t('syncPhoneBody')}</p>
-            <PhoneFrame>
-              <PhoneScreen kind="feed" />
-            </PhoneFrame>
-          </div>
-        </div>
+        <DevicePair />
       </Section>
 
       <Section id="features">

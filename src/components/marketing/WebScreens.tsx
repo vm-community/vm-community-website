@@ -149,7 +149,7 @@ function Screen({ kind }: { kind: WebTask['screen'] }) {
             </Panel>
             <Panel title="Recent activity">
               <ul className="flex flex-col gap-3 text-small">
-                {sampleActivity.map((a) => (
+                {sampleActivity.slice(0, 3).map((a) => (
                   <li key={a} className="flex items-start gap-2 text-text-muted">
                     <span aria-hidden className="mt-2 size-2 shrink-0 rounded-full bg-primary" />
                     {a}

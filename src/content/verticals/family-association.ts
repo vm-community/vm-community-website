@@ -230,8 +230,8 @@ export const familyAssociation: VerticalContent = {
     { key: 'hr', label: 'Staff and HR', optional: true },
   ],
   familyConnections: {
-    title: 'The full family tree',
-    body: 'Build the tree branch by branch: generations, marriages between families, non-member and departed relatives, and links across families with approvals. Private details stay masked, and you can export the tree whenever you like.',
+    title: 'Every branch, one tree.',
+    body: 'Start with households, and grow into a full tree: generations, marriages between families and relatives who are not members.',
   },
   privacy: {
     title: 'Private by design',

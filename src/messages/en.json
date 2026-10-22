@@ -224,7 +224,9 @@
       "trustBody": "Separate data per community, role-based access, an audit trail, consent and data requests, and sign-in through a standards-based identity provider.",
       "trustCta": "Read how we keep data safe",
       "faqTitle": "Questions, answered",
-      "rotatingPrefix": "Built for"
+      "rotatingPrefix": "Built for",
+      "syncBadge": "Updated a moment ago on both",
+      "syncPhoneCaption": "Illustrative example"
     },
     "features": {
       "title": "Every module, in detail",

@@ -89,7 +89,7 @@ export interface VerticalContent {
   mobile: {
     intro: string;
     benefits: MobileBenefit[];
-    screens: Array<'feed' | 'event' | 'giving' | 'family'>;
+    screens: Array<'feed' | 'event' | 'giving' | 'family' | 'serving' | 'privacy' | 'communities'>;
   };
   glance: GlanceRow[];
   scenarios: Scenario[];
