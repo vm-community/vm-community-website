@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+public/fonts
+coverage
+test-results
+playwright-report
+screenshots
+PROMPT.md

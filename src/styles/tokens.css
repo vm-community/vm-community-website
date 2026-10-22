@@ -1,0 +1,141 @@
+/* tokens.css — the ONLY place raw colour/size literals may live */
+:root {
+  color-scheme: light;
+
+  /* colour — light */
+  --vm-color-primary: #4f46e5;
+  --vm-color-primary-hover: #4338ca;
+  --vm-color-secondary: #7c3aed;
+  --vm-color-bg: #ffffff;
+  --vm-color-surface: #f8fafc;
+  --vm-color-surface-raised: #ffffff;
+  --vm-color-border: #e2e8f0;
+  --vm-color-text: #0f172a;
+  --vm-color-text-muted: #64748b;
+  --vm-color-success: #16a34a;
+  --vm-color-warning: #d97706;
+  --vm-color-danger: #dc2626;
+  --vm-color-info: #0284c7;
+  --vm-color-on-primary: #ffffff;
+  --vm-color-scrim: rgba(0, 0, 0, 0.7); /* over photos; theme-independent */
+  --vm-color-on-scrim: #ffffff;
+  --vm-gradient-brand: linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #2563eb 100%);
+
+  /* spacing (4px base). ONLY these 8 steps are legal */
+  --vm-space-1: 4px;
+  --vm-space-2: 8px;
+  --vm-space-3: 12px;
+  --vm-space-4: 16px;
+  --vm-space-5: 24px;
+  --vm-space-6: 32px;
+  --vm-space-7: 48px;
+  --vm-space-8: 64px;
+  --vm-gutter-mobile: var(--vm-space-4); /* <= 600px  */
+  --vm-gutter-tablet: var(--vm-space-5); /* 600-840px */
+  --vm-gutter-desktop: var(--vm-space-6); /* > 840px   */
+
+  /* radius */
+  --vm-radius-sm: 6px; /* inputs, chips */
+  --vm-radius-md: 8px; /* buttons, cards */
+  --vm-radius-lg: 12px; /* modals, feature cards */
+  --vm-radius-full: 9999px; /* avatars, pills */
+
+  /* elevation (light: shadows; dark: borders + surface steps instead) */
+  --vm-elevation-1: 0 1px 2px rgba(15, 23, 42, 0.08);
+  --vm-elevation-2: 0 4px 12px rgba(15, 23, 42, 0.1); /* popover, dropdown */
+  --vm-elevation-3: 0 8px 24px rgba(15, 23, 42, 0.14); /* modal */
+
+  /* typography: Inter, weights 400/500/600/700, line-height 1.5 body / 1.25 headings */
+  --vm-font: 'Inter', -apple-system, Roboto, sans-serif;
+  --vm-type-display: 2.25rem; /* 36 landing hero  */
+  --vm-type-h1: 1.5rem; /* 24 page titles   */
+  --vm-type-h2: 1.25rem; /* 20 section titles*/
+  --vm-type-h3: 1.125rem; /* 18 card titles   */
+  --vm-type-body: 1rem; /* 16 default       */
+  --vm-type-small: 0.875rem; /* 14 secondary, table cells */
+  --vm-type-caption: 0.75rem; /* 12 badges, timestamps */
+  --vm-lh-body: 1.5;
+  --vm-lh-heading: 1.25;
+
+  /* motion (assumption: not in the verified source; keep subtle) */
+  --vm-motion-fast: 120ms;
+  --vm-motion-base: 200ms;
+  --vm-motion-slow: 320ms;
+  --vm-ease: cubic-bezier(0.2, 0, 0, 1);
+
+  /* focus ring */
+  --vm-focus-ring: 0 0 0 3px color-mix(in srgb, var(--vm-color-primary) 45%, transparent);
+
+  /* layout (web-only additions; not part of the verified mobile token set) */
+  --vm-layout-content-max: 1200px;
+  --vm-layout-prose-max: 720px;
+  --vm-layout-sidebar: 264px;
+  --vm-layout-sidebar-collapsed: 72px;
+  --vm-layout-topbar: 56px;
+  --vm-layout-bottomnav: 64px;
+  --vm-layout-control: 40px; /* desktop control height */
+  --vm-layout-control-touch: 48px; /* phone control height (mobile app uses 48 for feed controls) */
+  --vm-layout-target-min: 44px;
+  --vm-layout-border: 1px;
+  --vm-layout-border-strong: 2px;
+  --vm-layout-icon: 20px;
+  --vm-layout-icon-sm: 16px;
+  --vm-layout-icon-lg: 24px;
+  --vm-layout-icon-stroke: 1.75;
+  --vm-layout-avatar-sm: 28px;
+  --vm-layout-avatar-md: 40px;
+  --vm-layout-avatar-lg: 64px;
+  --vm-layout-avatar-xl: 96px;
+  --vm-layout-menu-min: 192px;
+  --vm-layout-switcher-max: 224px;
+  --vm-layout-preview-max: 192px;
+  --vm-layout-popover-max: 256px;
+  --vm-bp-phone-max: 600px;
+  --vm-bp-tablet-max: 840px;
+  --vm-type-display-lg: 3.25rem; /* 52 desktop hero (web-only addition) */
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --vm-color-primary: #818cf8;
+  --vm-color-primary-hover: #a5b4fc;
+  --vm-color-secondary: #a78bfa;
+  --vm-color-bg: #0f172a;
+  --vm-color-surface: #1e293b;
+  --vm-color-surface-raised: #334155;
+  --vm-color-border: #334155;
+  --vm-color-text: #f1f5f9;
+  --vm-color-text-muted: #94a3b8;
+  --vm-color-success: #4ade80;
+  --vm-color-warning: #fbbf24;
+  --vm-color-danger: #f87171;
+  --vm-color-info: #38bdf8;
+  --vm-color-on-primary: #0f172a;
+  --vm-elevation-1: none;
+  --vm-elevation-2: none;
+  --vm-elevation-3: none; /* use borders + surface steps */
+}
+
+/* Follow the OS when the user has not chosen a theme explicitly */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --vm-color-primary: #818cf8;
+    --vm-color-primary-hover: #a5b4fc;
+    --vm-color-secondary: #a78bfa;
+    --vm-color-bg: #0f172a;
+    --vm-color-surface: #1e293b;
+    --vm-color-surface-raised: #334155;
+    --vm-color-border: #334155;
+    --vm-color-text: #f1f5f9;
+    --vm-color-text-muted: #94a3b8;
+    --vm-color-success: #4ade80;
+    --vm-color-warning: #fbbf24;
+    --vm-color-danger: #f87171;
+    --vm-color-info: #38bdf8;
+    --vm-color-on-primary: #0f172a;
+    --vm-elevation-1: none;
+    --vm-elevation-2: none;
+    --vm-elevation-3: none;
+  }
+}
