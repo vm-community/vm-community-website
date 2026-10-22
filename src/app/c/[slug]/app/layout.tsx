@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { AppProviders } from '@/components/AppProviders';
 import { AppGate } from './AppGate';
 
 export default async function CommunityAppLayout({
@@ -9,5 +10,9 @@ export default async function CommunityAppLayout({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  return <AppGate slug={slug}>{children}</AppGate>;
+  return (
+    <AppProviders>
+      <AppGate slug={slug}>{children}</AppGate>
+    </AppProviders>
+  );
 }

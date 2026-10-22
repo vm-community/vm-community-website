@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
+import { AppProviders } from '@/components/AppProviders';
 import { SignInClient } from './SignInClient';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -10,8 +11,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function SignInPage() {
   return (
-    <Suspense fallback={null}>
-      <SignInClient />
-    </Suspense>
+    <AppProviders>
+      <Suspense fallback={null}>
+        <SignInClient />
+      </Suspense>
+    </AppProviders>
   );
 }

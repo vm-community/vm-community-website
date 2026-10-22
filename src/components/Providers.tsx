@@ -1,29 +1,12 @@
 'use client';
 
-import dynamic from 'next/dynamic';
 import type { ReactNode } from 'react';
-import { ApiProvider } from '@/lib/api/provider';
-import { isMockMode } from '@/lib/api/client';
-import { SessionProvider } from '@/lib/auth/SessionProvider';
 import { ThemeProvider } from '@/lib/theme/ThemeProvider';
-import { ToastProvider } from '@/components/vm/Toast';
 
-const DevToolbar = isMockMode()
-  ? dynamic(() => import('@/devtools/DevToolbar').then((m) => m.DevToolbar), { ssr: false })
-  : () => null;
-
-/** Client-side provider stack shared by every route. */
+/**
+ * Root provider stack: only the theme, which every route needs. Toasts, the API client, session
+ * and dev toolbar live in AppProviders so marketing pages stay within the JS budget.
+ */
 export function Providers({ children }: { children: ReactNode }) {
-  return (
-    <ThemeProvider>
-      <ApiProvider>
-        <SessionProvider>
-          <ToastProvider>
-            {children}
-            <DevToolbar />
-          </ToastProvider>
-        </SessionProvider>
-      </ApiProvider>
-    </ThemeProvider>
-  );
+  return <ThemeProvider>{children}</ThemeProvider>;
 }

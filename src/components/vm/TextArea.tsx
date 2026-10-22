@@ -10,12 +10,12 @@ interface TextAreaProps extends Omit<
   'className' | 'id'
 > {
   /** Shows a live counter and marks overflow; pair with maxLength from the server contract. */
-  max?: number;
+  counterMax?: number;
   className?: string;
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(function TextArea(
-  { max, className, value, rows = 4, ...rest },
+  { counterMax: max, className, value, rows = 4, ...rest },
   ref,
 ) {
   const t = useTranslations('common');

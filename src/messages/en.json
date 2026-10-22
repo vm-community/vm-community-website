@@ -426,7 +426,10 @@
       "stackMore": "+{count}",
       "stackLabel": "{count, plural, one {# person} other {# people}}"
     },
-    "dialog": { "close": "Close dialog", "dragHandle": "Drag to resize" },
+    "dialog": {
+      "close": "Close dialog",
+      "dragHandle": "Drag to resize"
+    },
     "confirm": {
       "title": "Are you sure?",
       "confirm": "Confirm",
@@ -434,8 +437,15 @@
       "dangerConfirm": "Yes, {action}",
       "typeToConfirm": "Type {word} to confirm"
     },
-    "toast": { "region": "Notifications", "dismiss": "Dismiss notification" },
-    "table": { "caption": "{title}", "empty": "No rows to show.", "rowActions": "Row actions" },
+    "toast": {
+      "region": "Notifications",
+      "dismiss": "Dismiss notification"
+    },
+    "table": {
+      "caption": "{title}",
+      "empty": "No rows to show.",
+      "rowActions": "Row actions"
+    },
     "pagination": {
       "label": "Pagination",
       "prev": "Previous page",
@@ -472,7 +482,10 @@
       "remove": "Remove {tag}",
       "placeholder": "Add a tag and press Enter"
     },
-    "expandable": { "more": "Read more", "less": "Read less" },
+    "expandable": {
+      "more": "Read more",
+      "less": "Read less"
+    },
     "reactions": {
       "label": "Reactions",
       "react": "React",
@@ -502,7 +515,10 @@
       "closed": "This poll is closed.",
       "resultsFailed": "We could not load the results."
     },
-    "attachment": { "download": "Download {name}", "remove": "Remove {name}" },
+    "attachment": {
+      "download": "Download {name}",
+      "remove": "Remove {name}"
+    },
     "gallery": {
       "open": "Open image {index} of {total}",
       "close": "Close gallery",
@@ -510,19 +526,34 @@
       "next": "Next image",
       "counter": "{index} of {total}"
     },
-    "tabs": { "label": "Sections" },
-    "breadcrumbs": { "label": "Breadcrumb" },
-    "segmented": { "label": "Choose a view" },
+    "tabs": {
+      "label": "Sections"
+    },
+    "breadcrumbs": {
+      "label": "Breadcrumb"
+    },
+    "segmented": {
+      "label": "Choose a view"
+    },
     "statCard": {
       "delta": "{value} vs previous period",
       "up": "up",
       "down": "down",
       "sparkline": "Trend"
     },
-    "search": { "label": "Search", "clear": "Clear search" },
-    "skeleton": { "label": "Loading content" },
-    "progress": { "label": "{value}% complete" },
-    "emptyState": { "title": "Nothing here yet" },
+    "search": {
+      "label": "Search",
+      "clear": "Clear search"
+    },
+    "skeleton": {
+      "label": "Loading content"
+    },
+    "progress": {
+      "label": "{value}% complete"
+    },
+    "emptyState": {
+      "title": "Nothing here yet"
+    },
     "errorState": {
       "title": "We could not load this",
       "retry": "Try again",
@@ -532,17 +563,35 @@
       "title": "You can't see this",
       "body": "You need the {scope} permission."
     },
-    "can": { "explain": "You need the {domain}: {verb} permission." },
+    "can": {
+      "explain": "You need the {domain}: {verb} permission."
+    },
     "privateBadge": "Private",
     "roleBadge": "Role: {role}",
     "themeToggle": "Theme",
-    "banner": { "close": "Close message" },
-    "menu": { "open": "Open menu" },
-    "sheet": { "handle": "Drag handle" },
-    "datefield": { "open": "Open calendar", "today": "Today" },
-    "switch": { "on": "On", "off": "Off" },
-    "select": { "placeholder": "Choose…" },
-    "textarea": { "counter": "{count} / {max}" },
+    "banner": {
+      "close": "Close message"
+    },
+    "menu": {
+      "open": "Open menu"
+    },
+    "sheet": {
+      "handle": "Drag handle"
+    },
+    "datefield": {
+      "open": "Open calendar",
+      "today": "Today"
+    },
+    "switch": {
+      "on": "On",
+      "off": "Off"
+    },
+    "select": {
+      "placeholder": "Choose…"
+    },
+    "textarea": {
+      "counter": "{count} / {max}"
+    },
     "wordmark": "VibeMind Community"
   },
   "kinship": {
@@ -587,5 +636,417 @@
     },
     "sentence": "{a} is the {label} of {b}."
   },
-  "vocab": {}
+  "vocab": {},
+  "marketing": {
+    "nav": {
+      "solutions": "Solutions",
+      "mobile": "Mobile",
+      "web": "Web",
+      "features": "Features",
+      "familyTree": "Family tree",
+      "trust": "Trust",
+      "signIn": "Sign in",
+      "getStarted": "Get started",
+      "menu": "Menu",
+      "openSolutions": "Open solutions menu",
+      "allTypes": "All community types",
+      "communities": "Community directory",
+      "about": "About",
+      "contact": "Contact",
+      "privacy": "Privacy policy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal",
+      "footerLabel": "Footer",
+      "headerLabel": "Site header",
+      "solutionsLabel": "Community types"
+    },
+    "common": {
+      "seeHow": "See how it works",
+      "learnMore": "Learn more",
+      "illustrative": "Illustrative example",
+      "illustrativeSample": "Illustrative sample",
+      "onWeb": "On the web",
+      "onPhone": "On your phone",
+      "forLeaders": "On the web — for leaders and administrators",
+      "forMembers": "On your phone — for every member",
+      "bestOnWeb": "Best on the web",
+      "bestOnMobile": "Best on mobile",
+      "persona": "Who",
+      "glance": "Web vs mobile at a glance",
+      "dayInLife": "A day in the life",
+      "modulesFor": "Modules you get for {type}",
+      "optional": "Optional",
+      "faq": "Frequently asked questions",
+      "relatedTypes": "Also built for",
+      "whyChoose": "Why {type} communities choose VibeMind",
+      "seeMobile": "See the mobile app",
+      "seeWeb": "See the web app",
+      "poweredBy": "Powered by Vibe Mind",
+      "breadcrumbFor": "Community types",
+      "typeIndexTitle": "Built for every kind of community",
+      "typeIndexSub": "One platform, configured for the way your community works. Pick yours.",
+      "ctaTitle": "One home for your whole community.",
+      "ctaBody": "Set it up in an afternoon. Invite your people. Run it together.",
+      "talkToUs": "Talk to us",
+      "privacyTitle": "Privacy and control",
+      "roadmap": "Roadmap",
+      "backToTop": "Back to top",
+      "home": "Home",
+      "stepN": "Step {n}",
+      "included": "Included"
+    },
+    "home": {
+      "heroTitle": "One home for your whole community.",
+      "heroSub": "Members, events, giving, groups and family connections, on the web and in your pocket. For churches, mosques, temples, clubs, associations and more.",
+      "findCommunity": "Find your community",
+      "rotating": "Built for {word}",
+      "typesTitle": "Built for every kind of community",
+      "typesSub": "Each community type gets its own vocabulary, modules and landing page. Same platform, same account.",
+      "whyTitle": "Why communities choose VibeMind",
+      "whySub": "Everything a community needs to stay connected, in one respectful, private place.",
+      "syncTitle": "Web and mobile, in sync",
+      "syncSub": "Same account, same data, same look, in light and dark.",
+      "syncWebTitle": "On the web — for running the community",
+      "syncWebBody": "Dashboards, reports, bulk tools, the ledger and approvals.",
+      "syncPhoneTitle": "On your phone — for being part of it",
+      "syncPhoneBody": "Feed, RSVP, give, support requests, family and notifications.",
+      "featuresTitle": "Everything in one place",
+      "featuresSub": "Pick a module to see what it does. All of it is included.",
+      "treeTitle": "Connect people and families",
+      "treeBody": "Households today, a full family tree when you are ready: generations, marriages between families, relatives who are not members, all with approvals and privacy.",
+      "treeCta": "Explore the family tree",
+      "howTitle": "How it works",
+      "how1Title": "Set up your community",
+      "how1Body": "Name it, pick your accent colour and enable the modules you need.",
+      "how2Title": "Invite your people",
+      "how2Body": "Send invitations by email. Each person gets one login for every community they belong to.",
+      "how3Title": "Run it together",
+      "how3Body": "Leaders work on the web; everyone else carries the community in their pocket.",
+      "trustTitle": "Trusted by design",
+      "trustBody": "Separate data per community, role-based access, an audit trail, consent and data requests, and sign-in through a standards-based identity provider.",
+      "trustCta": "Read how we keep data safe",
+      "faqTitle": "Questions, answered",
+      "rotatingPrefix": "Built for"
+    },
+    "features": {
+      "title": "Every module, in detail",
+      "sub": "What the platform does today. Nothing here is a roadmap item.",
+      "webOnly": "Web",
+      "mobileToo": "Web and mobile"
+    },
+    "trust": {
+      "title": "Trust, privacy and security",
+      "sub": "Plain words about how your community’s data is kept separate, private and accountable.",
+      "report": "Report a security issue",
+      "t1": {
+        "title": "Separate data per community",
+        "body": "Every community is its own site with its own data. A session is bound to one community; switching communities means a new, scoped token."
+      },
+      "t2": {
+        "title": "Roles and scopes",
+        "body": "Every action needs exactly one permission. A person has one role per community, and the app shows only what that role may see."
+      },
+      "t3": {
+        "title": "An audit trail",
+        "body": "Changes are recorded with who, what and when. Sensitive details are redacted unless the viewer holds the right permission."
+      },
+      "t4": {
+        "title": "Consent and data requests",
+        "body": "Consents can be granted and withdrawn just as easily. Anyone can request an export or erasure of their data and follow its progress."
+      },
+      "t5": {
+        "title": "Uploads checked twice",
+        "body": "Files are validated by extension and by their actual bytes, images are re-encoded, and display images are capped in size."
+      },
+      "t6": {
+        "title": "Standards-based sign-in",
+        "body": "Identity is handled by a standards-based provider (OpenID Connect). The website never sees a password and the browser never holds a token."
+      },
+      "t7": {
+        "title": "Private files stay private",
+        "body": "Photos and documents are served through an authenticated proxy and are never cached by the browser."
+      },
+      "t8": {
+        "title": "Rate limits",
+        "body": "Sensitive or noisy actions, such as sharing content or requesting a password reset, are rate-limited."
+      }
+    },
+    "communities": {
+      "title": "Community directory",
+      "sub": "Communities that chose to be listed. Enter one to sign in.",
+      "empty": "No community has opted into the directory yet.",
+      "enter": "Enter"
+    },
+    "getStarted": {
+      "title": "Talk to us",
+      "sub": "Tell us about your community and we will set up a demo with your own name, colour and modules. No pricing surprises: we agree a plan together.",
+      "expect": "What to expect",
+      "expect1": "A short call to understand your community and the modules you need.",
+      "expect2": "A demo community set up with your name and accent colour.",
+      "expect3": "An invitation for a few of your leaders to try the web and mobile apps.",
+      "communityName": "Community name",
+      "type": "Community type",
+      "role": "Your role",
+      "size": "How many people, roughly?",
+      "email": "Your email",
+      "message": "Anything else we should know?",
+      "send": "Send",
+      "sent": "Thank you. We will be in touch.",
+      "sentBody": "Your request has been saved. In this demo it is stored only in your browser.",
+      "mailto": "Or email us directly",
+      "size1": "Up to 100",
+      "size2": "100 to 500",
+      "size3": "500 to 2,000",
+      "size4": "More than 2,000",
+      "roleLeader": "Leader",
+      "roleAdmin": "Administrator",
+      "roleTreasurer": "Treasurer",
+      "roleMember": "Member",
+      "roleOther": "Other",
+      "failed": "We could not send your request. Please try again or email us."
+    },
+    "mobile": {
+      "title": "Your community in your pocket.",
+      "sub": "The mobile app is for being part of it: the feed, events, giving records, family, serving and support, with your privacy choices respected.",
+      "need": "What you need",
+      "need1": "Sign in with your community account.",
+      "need2": "Android and iOS, available on request while we roll out.",
+      "earlyAccess": "Ask us for early access",
+      "ios": "Download on the App Store",
+      "android": "Get it on Google Play",
+      "honesty": "The app works online with your community’s data. It does not process card payments and has no offline mode.",
+      "s1Title": "Stay in the loop",
+      "s1Body": "The community feed, announcements and push notifications, with per-topic preferences.",
+      "s2Title": "Never miss an event",
+      "s2Body": "RSVP for yourself or your household and get reminded before it starts.",
+      "s3Title": "Give and track",
+      "s3Body": "Record a gift you made through your community’s own channel and read your annual statement.",
+      "s4Title": "Be part of a family",
+      "s4Body": "Your household, and the wider family tree where your community has enabled it.",
+      "s5Title": "Serve and support",
+      "s5Body": "Accept or decline roster invitations, and share support requests where the community offers them.",
+      "s6Title": "Your identity, your choice",
+      "s6Body": "Visibility, consent, date and time formats, and dark mode: all yours to set.",
+      "s7Title": "More than one community",
+      "s7Body": "One login. Switch between every community you belong to."
+    },
+    "web": {
+      "title": "Run your community with clarity.",
+      "sub": "The web app is for leaders, treasurers and administrators: dashboards, reports, management tools and approvals.",
+      "together": "Web and mobile work together",
+      "togetherBody": "What you set up on the web is what members see on their phones, the same minute.",
+      "leadersTitle": "For leaders",
+      "leadersBody": "A dashboard that composes itself from what you may see, reports with CSV export, and signals such as members who have not attended for a while.",
+      "treasurersTitle": "For treasurers",
+      "treasurersBody": "The ledger with filters, recording on behalf of a member, marking received, cancelling with a reason, funds with progress and statements per person.",
+      "adminsTitle": "For administrators",
+      "adminsBody": "Members and households, roles and scopes, approvals and moderation, documents, the audit trail, and family tree administration: links, merges and exports."
+    },
+    "familyTree": {
+      "title": "Every branch, one tree",
+      "sub": "Individual people connected by real relationships, families connected to other families, relatives who are not members, and a kinship calculator that answers “how are we related?”.",
+      "demoTitle": "Try it",
+      "demoSub": "A small fictional sample of three families. Pan, zoom and switch views.",
+      "demoPending": "The interactive demo arrives with the tree renderer in Phase 3. This is a static preview.",
+      "whoTitle": "Who it is for",
+      "whoBody": "Family associations first. Also churches, mosques, temples and societies, where households matter; optional for clubs, alumni groups and charities.",
+      "linksTitle": "Families linked, with approval",
+      "linksBody": "A marriage between two families creates a pending link that the other family approves. Declined links keep the people connected without bridging the families. Ended links keep their history.",
+      "privacyTitle": "Privacy in the tree",
+      "privacyBody": "A person you may not see is shown as “Private member”: the tree stays connected, but their name, photo and dates are never sent to your browser.",
+      "relativesTitle": "Everyone belongs",
+      "relativesBody": "Deceased ancestors, a spouse outside the community, a child without an account: all can be in the tree without a login. Adoption, step and guardian relations are first-class.",
+      "exportTitle": "Take it with you",
+      "exportBody": "Export as GEDCOM, JSON, PNG, SVG or a printable PDF poster."
+    },
+    "about": {
+      "title": "About VibeMind Community",
+      "body": "VibeMind Community is a product of Vibe Mind AI Solutions. We build software that helps communities of every kind stay connected without giving up their privacy.",
+      "parent": "Visit Vibe Mind AI Solutions"
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Write to us and we will get back to you.",
+      "email": "Email"
+    },
+    "legal": {
+      "placeholder": "Placeholder: this text has not been supplied yet and must be replaced by the community’s legal team before launch.",
+      "privacyTitle": "Privacy policy",
+      "termsTitle": "Terms of service",
+      "cookiesTitle": "Cookies"
+    },
+    "featureTabs": {
+      "people": "Members & families",
+      "events": "Events",
+      "feed": "Community feed",
+      "giving": "Giving",
+      "teams": "Groups & teams",
+      "docs": "Documents & media",
+      "bookings": "Bookings",
+      "certificates": "Certificates"
+    }
+  },
+  "modules": {
+    "members": {
+      "title": "Members and guests",
+      "body": "A directory with visibility controls, guest follow-up and conversion, notes and CSV export."
+    },
+    "families": {
+      "title": "Households",
+      "body": "Families with a head, an address and a roster of labelled members; a person can belong to several."
+    },
+    "tree": {
+      "title": "Family tree",
+      "body": "People connected by typed relationships, families linked by marriage with approvals, a kinship calculator and GEDCOM export."
+    },
+    "events": {
+      "title": "Events and series",
+      "body": "One-off and recurring events with exceptions, RSVP, capacity, sessions, check-in and attendance."
+    },
+    "giving": {
+      "title": "Giving records",
+      "body": "Funds, self-recorded gifts, a ledger for finance roles, receipts and annual statements. Records, never processes, payments."
+    },
+    "community": {
+      "title": "Community feed",
+      "body": "Posts, polls, announcements and events in one timeline with reactions, comments, shares, flags and approvals."
+    },
+    "groups": {
+      "title": "Groups",
+      "body": "Public, private and secret groups with their own discussions, members and managers."
+    },
+    "prayer": {
+      "title": "Support requests",
+      "body": "Shared or private requests, anonymous if wished, with a leader queue and “answered” marks."
+    },
+    "ministry": {
+      "title": "Teams and rosters",
+      "body": "Teams with roles, rosters per occurrence, invitations people accept or decline, attendance."
+    },
+    "documents": {
+      "title": "Documents",
+      "body": "Categories, versions, recent and popular rails, and share links that expire."
+    },
+    "media": {
+      "title": "Media",
+      "body": "Albums and items with consent and minor flags recorded on upload."
+    },
+    "bookings": {
+      "title": "Facilities and bookings",
+      "body": "Facilities with hours and availability; requests that confirm or wait for approval."
+    },
+    "announcements": {
+      "title": "Announcements",
+      "body": "Published, pinned and archived notices with comments and reactions."
+    },
+    "certificates": {
+      "title": "Certificates",
+      "body": "Templates, drafts, issue and revoke, with a numbering integrity report."
+    },
+    "hr": {
+      "title": "Staff and HR",
+      "body": "Employees, departments and job titles; compensation visible only with the right permission."
+    },
+    "notifications": {
+      "title": "Notifications",
+      "body": "In-app inbox and per-topic preferences for email, push and in-app."
+    },
+    "privacy": {
+      "title": "Privacy and data requests",
+      "body": "Consents you grant and withdraw, data export and erasure requests, visibility settings."
+    },
+    "reports": {
+      "title": "Reports and audit",
+      "body": "A catalog of reports with CSV export and an audit trail redacted by permission."
+    }
+  },
+  "verticals": {
+    "church": {
+      "name": "Churches",
+      "promise": "Flock, services, giving and prayer in one place."
+    },
+    "mosque": {
+      "name": "Mosques",
+      "promise": "Notices, programmes, donations and committees."
+    },
+    "temple": {
+      "name": "Temples",
+      "promise": "Festivals, volunteers, offerings and lineages."
+    },
+    "club": {
+      "name": "Clubs",
+      "promise": "Members, dues, fixtures and the clubhouse."
+    },
+    "family-association": {
+      "name": "Family associations",
+      "promise": "Every branch of the family, one tree."
+    },
+    "alumni": {
+      "name": "Alumni",
+      "promise": "Batches, chapters, reunions and giving back."
+    },
+    "society": {
+      "name": "Societies",
+      "promise": "Households, notices, dues and bookings."
+    },
+    "charity": {
+      "name": "Charities",
+      "promise": "Supporters, campaigns and transparency."
+    }
+  },
+  "homeBenefits": {
+    "everyone": {
+      "title": "Everyone in one place",
+      "body": "Members, families, groups and guests in one directory, with the visibility each person chooses."
+    },
+    "moment": {
+      "title": "Never miss a moment",
+      "body": "Events with RSVP, announcements and push notifications, with preferences per topic."
+    },
+    "contribute": {
+      "title": "Contribute with confidence",
+      "body": "Record gifts and dues made through your own channels, with receipts and annual statements."
+    },
+    "connect": {
+      "title": "Connect people and families",
+      "body": "A directory, households, and a full family tree that links families across the community."
+    },
+    "control": {
+      "title": "You stay in control",
+      "body": "Roles and scopes, approvals, moderation and an audit trail of every change."
+    },
+    "private": {
+      "title": "Private by design",
+      "body": "Consent recorded, visibility controls, and data export or erasure on request."
+    }
+  },
+  "homeFaq": {
+    "onlyChurches": {
+      "q": "Is it only for churches?",
+      "a": "No. The platform is configured per community type: churches, mosques, temples, clubs, family associations, alumni groups, societies and charities each get their own vocabulary, modules and landing page."
+    },
+    "several": {
+      "q": "Can one person belong to several communities?",
+      "a": "Yes. One login works for every community you belong to, and you switch between them from the app."
+    },
+    "payments": {
+      "q": "Does it take payments?",
+      "a": "No. It records gifts and dues that a person made through the community’s own channel, such as UPI, cash or a bank transfer, and produces statements. It never handles card or bank details."
+    },
+    "separate": {
+      "q": "Is our data separate from other communities?",
+      "a": "Yes. Each community has its own data and its own access rules, and sign-in is bound to one community at a time."
+    },
+    "colours": {
+      "q": "Can we use our own colours?",
+      "a": "Yes. Each community has its own accent colour, checked automatically for readable contrast in light and dark mode."
+    },
+    "devices": {
+      "q": "Which devices does it work on?",
+      "a": "The web app works in any modern browser today. The mobile app for Android and iOS is available on request while we roll out."
+    }
+  }
 }

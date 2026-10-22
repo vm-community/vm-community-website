@@ -99,6 +99,7 @@ export default tseslint.config(
   {
     files: [
       'src/app/design-system/**/*.tsx',
+      'src/app/opengraph-image.tsx',
       'src/mocks/**/*.ts',
       'tests/**/*.{ts,tsx}',
       '**/*.test.{ts,tsx}',
@@ -107,7 +108,11 @@ export default tseslint.config(
   },
   // Sanctioned innerHTML sites: the nonce'd theme bootstrap and the sanitised certificate frame
   {
-    files: ['src/app/layout.tsx', 'src/features/certificates/CertificateFrame.tsx'],
+    files: [
+      'src/app/layout.tsx',
+      'src/components/marketing/JsonLd.tsx',
+      'src/features/certificates/CertificateFrame.tsx',
+    ],
     rules: { 'no-restricted-syntax': 'off' },
   },
   {

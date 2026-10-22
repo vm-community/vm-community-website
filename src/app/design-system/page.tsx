@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { ToastProvider } from '@/components/vm/Toast';
 import { DesignSystemClient } from './DesignSystemClient';
 
 export const metadata: Metadata = {
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 
 /** Internal visual-regression surface: every token and component in both themes. Not linked. */
 export default function DesignSystemPage() {
-  return <DesignSystemClient />;
+  return (
+    <ToastProvider>
+      <DesignSystemClient />
+    </ToastProvider>
+  );
 }

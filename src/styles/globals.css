@@ -55,6 +55,7 @@
   --spacing-switcher: var(--vm-layout-switcher-max);
   --spacing-preview: var(--vm-layout-preview-max);
   --spacing-popover: var(--vm-layout-popover-max);
+  --spacing-phone-frame: var(--vm-layout-phone-frame);
 
   --container-content: var(--vm-layout-content-max);
   --container-prose: var(--vm-layout-prose-max);
@@ -433,4 +434,13 @@
   transition-property: all;
   transition-duration: var(--vm-motion-base);
   transition-timing-function: var(--vm-ease);
+}
+@utility vm-aspect-phone {
+  aspect-ratio: 9 / 19;
+}
+@utility vm-summary {
+  list-style: none;
+  &::-webkit-details-marker {
+    display: none;
+  }
 }

@@ -384,7 +384,7 @@ export function DesignSystemClient() {
             <TextArea
               value={text}
               onChange={(e) => setText(e.target.value)}
-              max={120}
+              counterMax={120}
               placeholder="A few words about you"
             />
           </Field>
