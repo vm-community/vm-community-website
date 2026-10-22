@@ -10,19 +10,6 @@ export async function setTheme(page: Page, theme: 'light' | 'dark'): Promise<voi
   }, theme);
 }
 
-export async function signInAs(page: Page, community: string, role: string): Promise<void> {
-  await page.addInitScript(
-    ({ c, r }) => {
-      // Init scripts run on every navigation: only seed the session when a test has not changed it since.
-      if (!window.localStorage.getItem('vm.session.test-seeded')) {
-        window.localStorage.setItem('vm.session', JSON.stringify({ communitySlug: c, role: r }));
-        window.localStorage.setItem('vm.session.test-seeded', '1');
-      }
-    },
-    { c: community, r: role },
-  );
-}
-
 export async function screenshotMatrix(
   page: Page,
   path: string,

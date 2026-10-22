@@ -54,42 +54,19 @@ export default tseslint.config(
         'error',
         {
           selector: "CallExpression[callee.name='fetch']",
-          message: 'Network access only inside src/lib/api/** (clients) and src/app/api/** (BFF).',
+          message: 'Network access only inside src/lib/api/**.',
         },
         {
           selector: "JSXAttribute[name.name='dangerouslySetInnerHTML']",
-          message: 'dangerouslySetInnerHTML is only allowed in the sanitised certificate frame.',
-        },
-      ],
-      'no-restricted-imports': [
-        'error',
-        {
-          patterns: [
-            {
-              group: ['@/mocks/*', '**/mocks/**'],
-              message:
-                'The mock backend may only be imported by the mock ApiClient, the dev toolbar and tests.',
-            },
-          ],
+          message: 'dangerouslySetInnerHTML is only allowed for the theme bootstrap and JSON-LD.',
         },
       ],
     },
   },
-  // Files that are allowed to use fetch
+  // The lead form client is the only place that may call fetch
   {
-    files: ['src/lib/api/**/*.ts', 'src/app/api/**/*.ts'],
+    files: ['src/lib/api/**/*.ts'],
     rules: { 'no-restricted-syntax': 'off' },
-  },
-  // Files that may import the mock backend
-  {
-    files: [
-      'src/lib/api/mock/**/*.{ts,tsx}',
-      'src/devtools/**/*.{ts,tsx}',
-      'src/mocks/**/*.{ts,tsx}',
-      '**/*.test.{ts,tsx}',
-      'tests/**/*.{ts,tsx}',
-    ],
-    rules: { 'no-restricted-imports': 'off' },
   },
   // Token files and dev surfaces may hold raw literals / dev-only copy
   {
@@ -97,22 +74,12 @@ export default tseslint.config(
     rules: { 'vm/no-raw-design-literals': 'off' },
   },
   {
-    files: [
-      'src/app/design-system/**/*.tsx',
-      'src/app/opengraph-image.tsx',
-      'src/mocks/**/*.ts',
-      'tests/**/*.{ts,tsx}',
-      '**/*.test.{ts,tsx}',
-    ],
+    files: ['src/app/opengraph-image.tsx', 'tests/**/*.{ts,tsx}', '**/*.test.{ts,tsx}'],
     rules: { 'vm/no-jsx-literal-strings': 'off', 'vm/no-raw-design-literals': 'off' },
   },
-  // Sanctioned innerHTML sites: the nonce'd theme bootstrap and the sanitised certificate frame
+  // Sanctioned innerHTML sites: the nonce'd theme bootstrap
   {
-    files: [
-      'src/app/layout.tsx',
-      'src/components/marketing/JsonLd.tsx',
-      'src/features/certificates/CertificateFrame.tsx',
-    ],
+    files: ['src/app/layout.tsx', 'src/components/marketing/JsonLd.tsx'],
     rules: { 'no-restricted-syntax': 'off' },
   },
   {

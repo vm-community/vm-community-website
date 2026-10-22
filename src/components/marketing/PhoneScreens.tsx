@@ -84,7 +84,7 @@ export function FeedScreen() {
 
 export function EventScreen() {
   const t = useTranslations('nav');
-  const tv = useTranslations('scopes.verb');
+  const tv = useTranslations('marketing.common');
   const e = sampleEvent;
   return (
     <div className="flex h-full flex-col gap-2 text-small">

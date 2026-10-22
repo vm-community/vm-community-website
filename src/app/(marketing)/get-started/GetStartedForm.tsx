@@ -47,11 +47,7 @@ export function GetStartedForm() {
     if (!e) return undefined;
     if (name === 'email') return tv('email');
     if (name === 'community_name')
-      return String(e.message ?? '')
-        .toLowerCase()
-        .includes('match')
-        ? tv('noMarkup')
-        : tv('required');
+      return (e.message ?? '').toLowerCase().includes('match') ? tv('noMarkup') : tv('required');
     return tv('required');
   };
 

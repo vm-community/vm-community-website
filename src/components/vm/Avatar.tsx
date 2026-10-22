@@ -42,9 +42,6 @@ interface AvatarProps {
 export function resolveImageUrl(src: string | null | undefined): string | null {
   if (!src) return null;
   if (src.startsWith('data:') || src.startsWith('blob:') || src.startsWith('http')) return src;
-  if (src.startsWith('/private/files/') || src.startsWith('/files/')) {
-    return `/api/files?u=${encodeURIComponent(src)}`;
-  }
   return src;
 }
 
