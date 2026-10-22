@@ -13,10 +13,12 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function SignInPage({
   searchParams,
 }: {
-  searchParams: Promise<{ community?: string }>;
+  searchParams?: Promise<{ community?: string }>;
 }) {
   const t = await getTranslations('marketing.signin');
-  const { community } = await searchParams;
+  const community: string | undefined = process.env.GITHUB_PAGES
+    ? undefined
+    : (await searchParams)?.community;
   const appUrl = process.env.NEXT_PUBLIC_APP_URL;
   const known = COMMUNITY_DIRECTORY.find((c) => c.slug === community);
   const target = appUrl ? `${appUrl.replace(/\/$/, '')}${known ? `/c/${known.slug}` : ''}` : null;
